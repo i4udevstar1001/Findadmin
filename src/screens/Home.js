@@ -1,10 +1,10 @@
-function HomeScreen({ navigation }) {
+import * as React from 'react';
+import { View, Text } from 'react-native';
+
+function HomeScreen() {
   return (
-    <Button
-      title="Go to Jane's profile"
-      onPress={() =>
-        navigation.navigate('Profile', { name: 'Jane' })
-      }
-    />
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+    </View>
   );
 }

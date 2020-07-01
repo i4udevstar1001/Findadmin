@@ -152,10 +152,92 @@ function Home({ navigation }) {
           </View>
 
           <View style={[styles.subItem, styles.collegePage]}>
-            <Text style={styles.h2Text}>Colleges & Universities</Text>
-            <Text style={styles.subTitle}>
-              Search the colleges or the University
-            </Text>
+            <View style={{ padding:20 }}>
+              <Text style={styles.h2Text}>Colleges & Universities</Text>
+              <Text style={styles.subTitle}>
+                Search the colleges or the University
+              </Text>
+
+              <View style={{ marginTop:10, flexDirection:'row', flexWrap:'wrap' }}>
+                <TouchableOpacity onPress={()=>alert('Undergraduate')}
+                  style={styles.colLinks} >
+                  <Text style={styles.colText}>Undergraduate</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>alert('Postgraduate')}
+                  style={styles.colLinks} >
+                  <Text style={styles.colText}>Postgraduate</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>alert('Online Distance Learning Undergraduate')}
+                  style={styles.colLinks} >
+                  <Text style={styles.colText}>Online Distance Learning Undergraduate</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>alert('Online Distance Learning Postgraduate')}
+                  style={styles.colLinks} >
+                  <Text style={styles.colText}>Online Distance Learning Postgraduate</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            <View style={styles.recommended}>
+              <Text style={[styles.h2Text, styles.fw600]}>Recommended for you</Text>
+              <View style={{ flexDirection:'row' }}>
+                <Text style={styles.subTitle}>Most Popular  </Text>
+                <TouchableOpacity onPress={()=>alert('1')}
+                    style={styles.popularBtn} >
+                    <Image source={require('./images/ellipse1.png')}
+                      style={{ width:8, height:8 }} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>alert('2')}
+                    style={styles.popularBtn} >
+                    <Image source={require('./images/ellipse2.png')}
+                      style={{ width:8, height:8 }} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>alert('3')}
+                    style={styles.popularBtn} >
+                    <Image source={require('./images/ellipse2.png')}
+                      style={{ width:8, height:8 }} />
+                </TouchableOpacity>
+              </View>
+
+              <View style={{ marginTop:15, flexDirection:'row' }}>
+                <View style={{ width:'90%' }}>
+                  <TouchableOpacity onPress={()=>alert('1')}>
+                    <Text style={styles.recLink}>
+                      International University Malaya Wales (IUMW)
+                    </Text>
+                  </TouchableOpacity>
+                  <Text style={styles.submitText}>
+                    Kuala Lumpur, Malaysia
+                  </Text>
+                </View>
+                <View style={{ width:'10%' }}>
+                  <TouchableOpacity onPress={()=>alert('will change heart image')}>
+                    <Image source={require('./images/heart_red.png')}
+                      style={{ width:20, height:20 }} />
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+              <View style={{ marginTop:15, flexDirection:'row' }}>
+                <View style={{ width:'90%' }}>
+                  <TouchableOpacity onPress={()=>alert('2')}>
+                    <Text style={styles.recLink}>
+                      International University Malaya Wales (IUMW)
+                    </Text>
+                  </TouchableOpacity>
+                  <Text style={styles.submitText}>
+                    Kuala Lumpur, Malaysia
+                  </Text>
+                </View>
+                <View style={{ width:'10%' }}>
+                  <TouchableOpacity onPress={()=>alert('will change heart image')}>
+                    <Image source={require('./images/heart_out.png')}
+                      style={{ width:20, height:20 }} />
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+            </View>
           </View>
 
 
@@ -305,6 +387,11 @@ const styles = StyleSheet.create({
     backgroundColor:'#14A60E', borderRadius:20,
     alignItems:'center'
   },
+  popularBtn: {
+    width:20, height:25, alignContent:'center',
+    justifyContent:'flex-end', alignSelf:'center',
+    alignItems:'center'
+  },
   submitBlank: {
     width:40, height:40, alignContent:'center',
     justifyContent:'center', alignSelf:'center', 
@@ -316,10 +403,31 @@ const styles = StyleSheet.create({
   },
   collegePage: {
     backgroundColor:'#FFFFFF', borderRadius:10,
-    padding:20, alignItems:'flex-start'
+    alignItems:'flex-start'
   },
   subTitle: {
     color:'#191919', fontWeight:'500', marginTop:10,
     fontSize:14, fontFamily:'Work Sans'
-  }
+  },
+  colLinks: {
+    padding:5, borderWidth:1, borderColor:'#14A60E',
+    borderRadius:5, alignItems:'center', 
+    marginRight:5, marginTop:5,
+  },
+  colText: {
+    fontFamily:'Work Sans', color:'#14A60E',
+    fontSize:12
+  },
+  recommended: {
+    backgroundColor:'#E0F0FB', width:'100%', padding:20,
+    borderBottomLeftRadius:10, borderBottomRightRadius:10,
+    paddingTop:15, paddingBottom:30
+  },
+  fw600: {
+    fontWeight:'600'
+  },
+  recLink: {
+    fontFamily:'Work Sans', fontWeight:'600',
+    fontSize:14, color:'#2D79AD'
+  },
 });

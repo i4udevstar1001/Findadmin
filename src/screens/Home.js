@@ -6,6 +6,8 @@ import {
 } from 'react-native';
 import { Image } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+import {LocaleConfig} from 'react-native-calendars';
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -234,6 +236,13 @@ export default function HomeScreen({ navigation }) {
           </View>
 
 
+          <View style={[styles.subItem, styles.eventPage]}>
+            <Text style={styles.h2Text}>Events</Text>
+
+            <Calendar
+              // Initially visible month. Default = Date()
+              current={'2020-07-02'} />
+          </View>
 
         </View>
       </ScrollView>
@@ -355,4 +364,9 @@ const styles = StyleSheet.create({
     fontFamily:'WorkSans-Regular', fontWeight:'600',
     fontSize:14, color:'#2D79AD'
   },
+  eventPage: {
+    backgroundColor:'#FFFFFF', borderRadius:10,
+    alignItems:'flex-start', padding:15, paddingLeft:20,
+    paddingRight:20,
+  }
 });

@@ -47,11 +47,11 @@ function Home({ navigation }) {
 
           <View style={styles.subItem}>
             <View style={styles.subHeader}>
-              <View style={{ width:'16%', justifyContent:'center' }}>
+              <View style={{ width:'13%', justifyContent:'center' }}>
                   <Image source={require('./images/announce.png')}
                     style={{ width:20, height:20 }} />
               </View>
-              <View style={{ width:'76%', justifyContent:'center' }}>
+              <View style={{ width:'79%', justifyContent:'center' }}>
                   <Text style={styles.headerText}>Announcement</Text>
               </View>
               <View style={{ width:'8%', justifyContent:'center', alignItems:'flex-end' }}>
@@ -75,7 +75,7 @@ function Home({ navigation }) {
               <View style={{flexDirection:'row', justifyContent:'center', marginTop:30}}>
                   <View style={{width:'33.33%', alignItems:'center', justifyContent:'center'}}>
                     <TouchableOpacity onPress={()=>alert('clicked button!')}
-                       style={{alignItems:'center'}} >
+                      style={{alignItems:'center'}} >
                       <React.Fragment>
                         <Image source={require('./images/profile.png')}
                           style={{ width:30, height:30, marginBottom:7 }} />
@@ -85,7 +85,7 @@ function Home({ navigation }) {
                   </View>
                   <View style={{width:'33.33%', alignItems:'center', justifyContent:'center'}}>
                     <TouchableOpacity onPress={()=>alert('clicked button!')}
-                       style={{alignItems:'center'}} >
+                      style={{alignItems:'center'}} >
                       <React.Fragment>
                         <Image source={require('./images/document.png')}
                           style={{ width:30, height:30, marginBottom:7 }} />
@@ -95,7 +95,7 @@ function Home({ navigation }) {
                   </View>
                   <View style={{width:'33.33%', alignItems:'center', justifyContent:'center'}}>
                     <TouchableOpacity onPress={()=>alert('clicked button!')}
-                       style={{alignItems:'center'}} >
+                      style={{alignItems:'center'}} >
                       <React.Fragment>
                         <Image source={require('./images/heart.png')}
                           style={{ width:30, height:30, marginBottom:7 }} />
@@ -200,7 +200,7 @@ function Home({ navigation }) {
               </View>
 
               <View style={{ marginTop:15, flexDirection:'row' }}>
-                <View style={{ width:'90%' }}>
+                <View style={{ width:'92%' }}>
                   <TouchableOpacity onPress={()=>alert('1')}>
                     <Text style={styles.recLink}>
                       International University Malaya Wales (IUMW)
@@ -210,7 +210,7 @@ function Home({ navigation }) {
                     Kuala Lumpur, Malaysia
                   </Text>
                 </View>
-                <View style={{ width:'10%' }}>
+                <View style={{ width:'8%', marginTop:3 }}>
                   <TouchableOpacity onPress={()=>alert('will change heart image')}>
                     <Image source={require('./images/heart_red.png')}
                       style={{ width:20, height:20 }} />
@@ -219,7 +219,7 @@ function Home({ navigation }) {
               </View>
 
               <View style={{ marginTop:15, flexDirection:'row' }}>
-                <View style={{ width:'90%' }}>
+                <View style={{ width:'92%' }}>
                   <TouchableOpacity onPress={()=>alert('2')}>
                     <Text style={styles.recLink}>
                       International University Malaya Wales (IUMW)
@@ -229,7 +229,7 @@ function Home({ navigation }) {
                     Kuala Lumpur, Malaysia
                   </Text>
                 </View>
-                <View style={{ width:'10%' }}>
+                <View style={{ width:'8%', marginTop:3 }}>
                   <TouchableOpacity onPress={()=>alert('will change heart image')}>
                     <Image source={require('./images/heart_out.png')}
                       style={{ width:20, height:20 }} />
@@ -341,7 +341,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10, borderTopLeftRadius: 10,
   },
   headerText: {
-    fontFamily:'Work Sans', fontSize:14, lineHeight:16,
+    fontFamily:'WorkSans-Regular', fontSize:14, lineHeight:16,
     color:'#FFFFFF', fontWeight:'500'
   },
   subContent: {
@@ -352,15 +352,15 @@ const styles = StyleSheet.create({
     shadowOpacity:0.1, shadowRadius:1, elevation:2
   },
   h2Text: {
-    color:'#191919', fontFamily:'Work Sans',
-    fontSize:18, fontWeight:'bold',
+    color:'#191919', fontFamily:'WorkSans-Bold',
+    fontSize:18, 
   },
   itemText: {
-    color:'#8E8E8E', fontFamily:'Work Sans',
+    color:'#8E8E8E', fontFamily:'WorkSans-Regular',
     fontSize:12,
   },
   linkText: {
-    color:'#191919', fontFamily:'Work Sans',
+    color:'#191919', fontFamily:'WorkSans-Regular',
     fontSize:12,
   },
   appPage: {
@@ -370,7 +370,7 @@ const styles = StyleSheet.create({
   },
   normalText: {
     color:'#192F45', fontSize:14,
-    fontFamily:'Work Sans',
+    fontFamily:'WorkSans-Regular',
   },
   color1: {
     color:'#14A60E', fontWeight:'bold',
@@ -398,7 +398,7 @@ const styles = StyleSheet.create({
     borderRadius:20, borderWidth:1, borderStyle:'dashed'
   },
   submitText: {
-    fontFamily:'Work Sans', color:'#8E8E8E',
+    fontFamily:'WorkSans-Regular', color:'#8E8E8E',
     fontSize:14,
   },
   collegePage: {
@@ -407,27 +407,28 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color:'#191919', fontWeight:'500', marginTop:10,
-    fontSize:14, fontFamily:'Work Sans'
+    fontSize:14, fontFamily:'WorkSans-Regular'
   },
   colLinks: {
     padding:5, borderWidth:1, borderColor:'#14A60E',
     borderRadius:5, alignItems:'center', 
-    marginRight:5, marginTop:5,
+    marginRight:4, marginTop:4,
+    paddingTop:3, paddingBottom:3,
   },
   colText: {
-    fontFamily:'Work Sans', color:'#14A60E',
+    fontFamily:'WorkSans-Regular', color:'#14A60E',
     fontSize:12
   },
   recommended: {
     backgroundColor:'#E0F0FB', width:'100%', padding:20,
     borderBottomLeftRadius:10, borderBottomRightRadius:10,
-    paddingTop:15, paddingBottom:30
+    paddingTop:15, paddingBottom:30, paddingRight:10
   },
   fw600: {
     fontWeight:'600'
   },
   recLink: {
-    fontFamily:'Work Sans', fontWeight:'600',
+    fontFamily:'WorkSans-Regular', fontWeight:'600',
     fontSize:14, color:'#2D79AD'
   },
 });

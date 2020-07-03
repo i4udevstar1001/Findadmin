@@ -8,6 +8,7 @@ import { Image } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import {LocaleConfig} from 'react-native-calendars';
+import HeaderSection from '../common/header';
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -17,27 +18,7 @@ export default function HomeScreen({ navigation }) {
         <View style={styles.container}>
           <StatusBar barStyle="dark-content" backgroundColor="white" />
 
-          <View style={styles.header}>
-            <View style={{width:'20%', alignItems:'flex-start', justifyContent:'center'}}>
-                <TouchableOpacity onPress={()=>navigation.toggleDrawer()}>
-                  <Image source={require('../../images/menu.png')}
-                    style={{ width:20, height:20 }} />
-                </TouchableOpacity>
-            </View>
-            <View style={{width:'60%', alignItems:'center'}}>
-                <TouchableOpacity onPress={()=>navigation.navigate('Home')}>
-                  <Image source={require('../../images/logo.png')}
-                    style={{ width:150, height:49 }} />
-                </TouchableOpacity>
-            </View>
-            <View style={{width:'20%', alignItems:'flex-end', justifyContent:'center'}}>
-                <TouchableOpacity onPress={()=>alert('clicked button!')}>
-                  <Image source={require('../../images/announce.png')}
-                    style={{ width:20, height:20 }} />
-                </TouchableOpacity>
-            </View>
-          </View>
-
+          <HeaderSection title='Header' />
 
 
           <View style={styles.subItem}>
@@ -171,6 +152,21 @@ export default function HomeScreen({ navigation }) {
                   <Text style={styles.colText}>Online Distance Learning Postgraduate</Text>
                 </TouchableOpacity>
               </View>
+
+              <View style={{ flexDirection:'row', justifyContent:'center', alignItems:'center', marginTop:20 }}>
+                <TouchableOpacity onPress={()=>alert('Search button is clicked!')}
+                  style={styles.searchBtn} >
+                  <Text style={styles.btnText}>Search</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>alert('alert')}>
+                    <Text style={styles.linkText1}>See more courses  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>alert('alert')}>
+                    <Image source={require('../../images/arrow_right_green.png')}
+                        style={{ width:12, height:12 }} />
+                </TouchableOpacity>
+              </View>
+
             </View>
 
             <View style={styles.recommended}>
@@ -239,11 +235,97 @@ export default function HomeScreen({ navigation }) {
           <View style={[styles.subItem, styles.eventPage]}>
             <Text style={styles.h2Text}>Events</Text>
 
-            <Calendar
-              // Initially visible month. Default = Date()
-              current={'2020-07-02'} />
+            <View style={{ width:'100%', marginTop:10, marginBottom:20 }}>
+              <Calendar
+                // Initially visible month. Default = Date()
+                current={'2020-07-02'}
+                markedDates={{
+                  '2020-07-06': {selected: true, selectedColor: '#3D8DBF'},
+                  '2020-07-16': {selected: true, selectedColor: '#3D8DBF'}
+                }}
+                style={{ width:'100%' }}
+                theme={{
+                  indicatorColor: '#191919',
+                  textDayFontFamily: 'WorkSans-Regular',
+                  textSectionTitleColor:'#191919',
+                  textSectionTitleDisabledColor: '#8E8E8E',
+                  textDayHeaderFontFamily: 'WorkSans-Bold',
+                  textDayHeaderFontSize: 10,
+                  textDayFontSize:12,                  
+                }}
+               />
+            </View>
+            <View style={{ flexDirection:'row', justifyContent:'center', alignItems:'center' }}>
+              <Text style={[styles.h2Text, styles.fw600]}>Upcoming Events     </Text>
+              <Image source={require('../../images/list_blue.png')}
+                style={{ width:7, height:7 }} />
+              <Text style={styles.thinText}>Virtual Events</Text>
+            </View>
+
+            <View>
+              <View style={[styles.upcomingWrap, styles.bottomBorder]}>
+                <View style={{ width:'7%', marginTop:6 }}>
+                  <Image source={require('../../images/list_blue.png')}
+                    style={{ width:7, height:7 }} />
+                </View>
+                <View style={{ width:'93%' }}>
+                    <TouchableOpacity onPress={()=>alert('clicked button!')}>
+                      <Text style={styles.recLink}>Virtual Undergraduate Open Day | Aston University |</Text>
+                    </TouchableOpacity>
+                    <View style={{ flexDirection:'row' }}>
+                      <View style={{ width:'50%', alignItems:'flex-start', marginTop:5 }}>
+                        <Text style={styles.normalText}>18 Jun, Thu 17:00 EDT (-04:00)</Text>
+                      </View>
+                      <View style={{ width:'50%', alignItems:'flex-end' }}>
+                        <TouchableOpacity onPress={()=>alert('Book button is clicked!')}
+                          style={styles.bookBtn} >
+                          <Text style={styles.btnText}>Book</Text>
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                </View>
+              </View>
+
+              <View style={styles.upcomingWrap}>
+                <View style={{ width:'7%', marginTop:6 }}>
+                  <Image source={require('../../images/list_blue.png')}
+                    style={{ width:7, height:7 }} />
+                </View>
+                <View style={{ width:'93%' }}>
+                    <TouchableOpacity onPress={()=>alert('clicked button!')}>
+                      <Text style={styles.recLink}>Virtual Undergraduate Open Day | Aston University |</Text>
+                    </TouchableOpacity>
+                    <View style={{ flexDirection:'row' }}>
+                      <View style={{ width:'50%', alignItems:'flex-start', marginTop:5 }}>
+                        <Text style={styles.normalText}>18 Jun, Thu 17:00 EDT (-04:00)</Text>
+                      </View>
+                      <View style={{ width:'50%', alignItems:'flex-end' }}>
+                        <TouchableOpacity onPress={()=>alert('Book button is clicked!')}
+                          style={styles.bookBtn} >
+                          <Text style={styles.btnText}>Book</Text>
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                </View>
+              </View>
+            </View>
+
+            <View style={{ flexDirection:'row', alignItems:'center', marginTop:10, alignSelf:'flex-end' }}>
+                <TouchableOpacity onPress={()=>alert('alert')}>
+                    <Text style={styles.linkText1}>See more courses  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>alert('alert')}>
+                    <Image source={require('../../images/arrow_right_green.png')}
+                        style={{ width:12, height:12 }} />
+                </TouchableOpacity>
+            </View>
+
           </View>
 
+          <View style={[styles.subItem, styles.newsfeedPage]}>
+            <Text style={styles.h2Text}>Newsfeed</Text>
+          </View>
+          
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -275,7 +357,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontFamily:'WorkSans-Regular', fontSize:14, lineHeight:16,
-    color:'#FFFFFF', fontWeight:'500'
+    color:'#FFFFFF', fontWeight:'bold'
   },
   subContent: {
     backgroundColor:'#FFFFFF', borderBottomLeftRadius:10,
@@ -302,7 +384,7 @@ const styles = StyleSheet.create({
     paddingBottom:30,
   },
   normalText: {
-    color:'#192F45', fontSize:14,
+    color:'#192F45', fontSize:14, lineHeight:18,
     fontFamily:'WorkSans-Regular',
   },
   color1: {
@@ -339,7 +421,7 @@ const styles = StyleSheet.create({
     alignItems:'flex-start'
   },
   subTitle: {
-    color:'#191919', fontWeight:'500', marginTop:10,
+    color:'#191919', fontWeight:'bold', marginTop:10,
     fontSize:14, fontFamily:'WorkSans-Regular'
   },
   colLinks: {
@@ -358,15 +440,45 @@ const styles = StyleSheet.create({
     paddingTop:15, paddingBottom:30, paddingRight:10
   },
   fw600: {
-    fontWeight:'600'
+    fontWeight:'bold'
   },
   recLink: {
-    fontFamily:'WorkSans-Regular', fontWeight:'600',
+    fontFamily:'WorkSans-Regular', fontWeight:'bold',
     fontSize:14, color:'#2D79AD'
   },
   eventPage: {
     backgroundColor:'#FFFFFF', borderRadius:10,
-    alignItems:'flex-start', padding:15, paddingLeft:20,
-    paddingRight:20,
+    alignItems:'flex-start', padding:20, paddingTop:15,
+  },
+  searchBtn: {
+    backgroundColor:'#14A60E', borderRadius:5,
+    padding:12, paddingLeft:33, paddingRight:33,
+    marginRight:20
+  },
+  btnText: {
+    color:'#FFFFFF', fontSize:16, fontFamily:'WorkSans-Bold'
+  },
+  linkText1: {
+    color:'#14A60E', fontSize:14, fontFamily:'WorkSans-Bold'
+  }, 
+  thinText: {
+    fontFamily:'WorkSans-Regular', fontSize:12,
+    color:'#3D8DBF', marginLeft:8
+  },
+  upcomingWrap: {
+    flexDirection:'row', paddingBottom:15, 
+    paddingLeft:5, marginTop:15,
+  },
+  bottomBorder: {
+    borderBottomWidth:1, borderBottomColor:'#ACACAC', 
+  },
+  bookBtn: {
+    backgroundColor:'#2D79AD', borderRadius:5,
+    padding:11, paddingLeft:35, paddingRight:35,
+    paddingBottom:12,
+  },
+  newsfeedPage: {
+    backgroundColor:'#FFFFFF', borderRadius:10,
+    alignItems:'flex-start', padding:20, paddingTop:15,
   }
 });

@@ -10,6 +10,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import {LocaleConfig} from 'react-native-calendars';
 import HeaderSection from '../common/header';
+import YouTube from 'react-native-youtube';
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -354,7 +355,14 @@ export default function HomeScreen({ navigation }) {
                     </Text>
                   </View>
 
-                  <View><Text>Video Area</Text></View>
+                  <View>
+                    <YouTube
+                      apiKey="AIzaSyCQp6MWv0Qv6DhUPDLaogYJoblcn2Y6VYg"
+                      videoId="ur6I5m2nTvk"
+                      play
+                      loop
+                    />                    
+                  </View>
 
                   <View style={{flexDirection:'row', marginTop:10 }}>
                       <TouchableOpacity onPress={()=>alert('Like')}>
@@ -420,6 +428,15 @@ export default function HomeScreen({ navigation }) {
 
               </ScrollView>
           </View>
+            <View style={{ flexDirection:'row', alignItems:'center', marginTop:10, alignSelf:'flex-end' }}>
+                <TouchableOpacity onPress={()=>alert('alert')}>
+                    <Text style={styles.linkText1}>See more courses  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>alert('alert')}>
+                    <Image source={require('../../images/arrow_right_green.png')}
+                        style={{ width:12, height:12 }} />
+                </TouchableOpacity>
+            </View>
           
         </View>
 

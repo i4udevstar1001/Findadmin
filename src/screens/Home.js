@@ -2,7 +2,8 @@ import * as React from 'react';
 import { 
   View, Text, Button, 
   SafeAreaView, ScrollView, 
-  StyleSheet, StatusBar 
+  StyleSheet, StatusBar, 
+  Dimensions,
 } from 'react-native';
 import { Image } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -324,9 +325,115 @@ export default function HomeScreen({ navigation }) {
 
           <View style={[styles.subItem, styles.newsfeedPage]}>
             <Text style={styles.h2Text}>Newsfeed</Text>
+              <ScrollView 
+                style={{ width:'100%', maxHeight:Dimensions.get('window').height*0.5, flex:1 }}
+                nestedScrollEnabled={true}
+                alwaysBounceHorizontal={true}>
+                
+                <View style={styles.feedItem}>
+                  <View style={{ flexDirection:'row' }}>
+                    <View style={{ width:'16%' }}>
+                      <TouchableOpacity onPress={()=>alert('alert')}
+                        style={{ width:35, height:35, borderRadius:17, overflow:'hidden' }}>
+                        <Image source={require('../../images/mark1.png')}
+                          style={{ width:35, height:35 }} />
+                      </TouchableOpacity>
+                    </View>
+                    <View style={{ width:'84%' }}>
+                      <TouchableOpacity onPress={()=>alert('alert')}>
+                        <Text style={styles.feedLink}>Middlesex University-Dubai</Text>
+                      </TouchableOpacity>
+                      <Text style={styles.itemText}>12 May</Text>
+                    </View>
+                  </View>
+
+                  <View style={{ marginTop:15, marginBottom:10 }}>
+                    <Text style={styles.normalText}>
+                      Students and faculty from MDX Dubai take on the Lip Sync Challenge width
+                      UPTOWN FUNK for the Class of 2019 Graduation Ceremony! #MDXDubai
+                    </Text>
+                  </View>
+
+                  <View><Text>Video Area</Text></View>
+
+                  <View style={{flexDirection:'row', marginTop:10 }}>
+                      <TouchableOpacity onPress={()=>alert('Like')}>
+                        <View style={{ flexDirection:'row' }}>
+                          <Image source={require('../../images/like.png')}
+                            style={{ width:15, height:15, marginTop:2 }} />
+                          <Text style={styles.recLink}> 18 Likes    </Text>
+                        </View>
+                      </TouchableOpacity>
+                      <TouchableOpacity onPress={()=>alert('Comments')}>
+                        <View style={{ flexDirection:'row' }}>
+                          <Text style={styles.recLink}> 3 Comments  </Text>
+                          <Image source={require('../../images/arrow_bottom_blue.png')}
+                            style={{ width:10, height:10, marginTop:6 }} />
+                        </View>
+                      </TouchableOpacity>
+                  </View>
+                </View>
+
+                <View style={styles.feedItem}>
+                  <View style={{ flexDirection:'row' }}>
+                    <View style={{ width:'16%' }}>
+                      <TouchableOpacity onPress={()=>alert('alert')}
+                        style={{ width:35, height:35, borderRadius:17, overflow:'hidden' }}>
+                        <Image source={require('../../images/mark1.png')}
+                          style={{ width:35, height:35 }} />
+                      </TouchableOpacity>
+                    </View>
+                    <View style={{ width:'84%' }}>
+                      <TouchableOpacity onPress={()=>alert('alert')}>
+                        <Text style={styles.feedLink}>Middlesex University-Dubai</Text>
+                      </TouchableOpacity>
+                      <Text style={styles.itemText}>12 May</Text>
+                    </View>
+                  </View>
+
+                  <View style={{ marginTop:15, marginBottom:10 }}>
+                    <Text style={styles.normalText}>
+                      Students and faculty from MDX Dubai take on the Lip Sync Challenge width
+                      UPTOWN FUNK for the Class of 2019 Graduation Ceremony! #MDXDubai
+                    </Text>
+                  </View>
+
+                  <View><Text>Video Area</Text></View>
+
+                  <View style={{flexDirection:'row', marginTop:10 }}>
+                      <TouchableOpacity onPress={()=>alert('Like')}>
+                        <View style={{ flexDirection:'row' }}>
+                          <Image source={require('../../images/like.png')}
+                            style={{ width:15, height:15, marginTop:2 }} />
+                          <Text style={styles.recLink}> 18 Likes    </Text>
+                        </View>
+                      </TouchableOpacity>
+                      <TouchableOpacity onPress={()=>alert('Comments')}>
+                        <View style={{ flexDirection:'row' }}>
+                          <Text style={styles.recLink}> 3 Comments  </Text>
+                          <Image source={require('../../images/arrow_bottom_blue.png')}
+                            style={{ width:10, height:10, marginTop:6 }} />
+                        </View>
+                      </TouchableOpacity>
+                  </View>
+                </View>
+
+              </ScrollView>
           </View>
           
         </View>
+
+
+        <View style={styles.container}>
+          <View style={[styles.subItem, styles.needHelp]}>
+            
+            <Text style={[styles.h2Text, styles.whiteColor]}>Need Help?</Text>
+            
+          </View>
+
+        </View>
+
+
       </ScrollView>
     </SafeAreaView>
   );
@@ -442,8 +549,15 @@ const styles = StyleSheet.create({
   fw600: {
     fontWeight:'bold'
   },
+  whiteColor: {
+    color:'#FFFFFF'
+  },
   recLink: {
     fontFamily:'WorkSans-Regular', fontWeight:'bold',
+    fontSize:14, color:'#2D79AD'
+  },
+  feedLink: {
+    fontFamily:'WorkSans-Bold', lineHeight:17,
     fontSize:14, color:'#2D79AD'
   },
   eventPage: {
@@ -480,5 +594,14 @@ const styles = StyleSheet.create({
   newsfeedPage: {
     backgroundColor:'#FFFFFF', borderRadius:10,
     alignItems:'flex-start', padding:20, paddingTop:15,
+  },
+  feedItem: {
+    borderBottomWidth:1, borderBottomColor:'#ACACAC',
+    paddingTop:15, paddingBottom:15,
+  },
+  needHelp: {
+    backgroundColor:'#3D8DBF', borderRadius:10,
+    alignItems:'flex-start', padding:20, paddingTop:15,
+    marginTop:0,
   }
 });
